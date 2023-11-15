@@ -1,0 +1,29 @@
+GET http://127.0.0.1:8000/api/persona
+
+### guarda personas
+POST http://127.0.0.1:8000/api/persona
+Content-Type: application/json
+
+{
+    "nombre_completo": "Maria Prueba",
+    "ci": "321564",
+    "estado": true,
+    "user_id": 3
+}
+
+### mostrar persona
+
+GET http://127.0.0.1:8000/api/persona/1
+Accept: application/json
+
+### modificar personas
+PUT http://127.0.0.1:8000/api/persona/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nombre_completo": "Maria Prueba Modificado",
+    "ci": "123456",
+    "estado": false,
+    "user_id": 3
+}

@@ -18,10 +18,23 @@ git config --global user.email johndoe@example.com
 git clone direccion_repo_remoto
 ```
 - Si no existe el repositorio local
+## Configuración
 ### Para Inicializar un nuevo repositorio
 ```
 git init 
 ```
+### Referencia del repositorio local al repositorio remoto
 
+```
+git remote add origin https://github.com/cchura94/back-laravel-vue.git
+
+```
+---
+## Actualizar codigo local con el repositorio remoto
+```
+git add .
+git commit -m "proyecto inicial laravel - crud usuario"
+git push origin master
+```
 
 

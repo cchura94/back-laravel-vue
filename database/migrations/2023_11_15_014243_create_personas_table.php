@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('personas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // id, bigInt, PK, AI, unsigned
+            $table->string("nombre_completo", 50);
+            $table->string("ci", 15)->nullable();
+            $table->boolean("estado")->default(true);
+            $table->bigInteger("user_id")->unsigned();
+
+            $table->foreign("user_id")->references("id")->on("users");
+            $table->timestamps(); // created_at, updated_at, deleted_at (softDelete)
         });
     }
 
