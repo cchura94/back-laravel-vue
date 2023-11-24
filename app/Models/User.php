@@ -50,4 +50,14 @@ class User extends Authenticatable
     public function persona() {
         return $this->hasOne(Persona::class);
     }
+
+    public function roles() {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+    // crear permisos
+
+    public function permisos(){
+        return $this->roles->map->permisos->flatten()->pluck("nombre")->unique();
+        // ["listar_categoria", "guaradar_producto"]
+    }
 }
