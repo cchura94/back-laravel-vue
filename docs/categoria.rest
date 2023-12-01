@@ -1,0 +1,36 @@
+GET http://127.0.0.1:8000/api/categoria
+Accept: application/json
+Authorization: Bearer 19|bNK7llHr5uvGGkzJKkTpxCRJVfUPw74rPnakP68t13658244
+
+
+### guardar
+POST http://127.0.0.1:8000/api/categoria
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 19|bNK7llHr5uvGGkzJKkTpxCRJVfUPw74rPnakP68t13658244
+
+{
+    "nombre": "OTROS",
+    "detalle": "TODO"
+}
+
+### mostrar
+GET http://127.0.0.1:8000/api/categoria/4
+Accept: application/json
+Authorization: Bearer 19|bNK7llHr5uvGGkzJKkTpxCRJVfUPw74rPnakP68t13658244
+
+### modificar
+PUT http://127.0.0.1:8000/api/categoria/4
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 19|bNK7llHr5uvGGkzJKkTpxCRJVfUPw74rPnakP68t13658244
+
+{
+    "nombre": "OTROS MODIFICADO",
+    "detalle": "TODO MODIFICADO"
+}
+
+### eliminar
+DELETE http://127.0.0.1:8000/api/categoria/4
+Accept: application/json
+Authorization: Bearer 19|bNK7llHr5uvGGkzJKkTpxCRJVfUPw74rPnakP68t13658244

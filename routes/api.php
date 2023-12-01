@@ -5,12 +5,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriaController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::middleware("auth:sanctum")->group(function(){
+
 
     // rutas para CRUD de usuarios
     Route::get("/usuario", [UserController::class, "funListar"]); //->middleware(["auth:sanctum"]);
@@ -20,6 +22,8 @@ Route::middleware("auth:sanctum")->group(function(){
     Route::delete("/usuario/{id}", [UserController::class, "funEliminar"]);
     
     Route::apiresource("/persona", PersonaController::class);
+
+    Route::apiResource('/categoria', CategoriaController::class);
 
 });
 
