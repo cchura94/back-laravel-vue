@@ -1,0 +1,18 @@
+GET http://127.0.0.1:8000/api/producto?q=A&limit=5&page=1
+Accept: application/json
+Authorization: Bearer 25|wcBAokrB0h5p5llnIznizG5VOCtmafFURVNmoAUd481c7035
+
+### Guardar Producto
+POST http://127.0.0.1:8000/api/producto
+Accept: application/json
+Authorization: Bearer 25|wcBAokrB0h5p5llnIznizG5VOCtmafFURVNmoAUd481c7035
+Content-Type: application/json
+
+{
+    "nombre": "PARLANTES",
+    "precio": 250.69,
+    "stock": 12,
+    "descripcion": "Parlantes para Laptops",
+    "estado": true,
+    "categoria_id": 1
+}
