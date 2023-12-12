@@ -14,6 +14,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware("auth:sanctum")->group(function(){
 
+    // actualizar imagen de producto
+    Route::post("producto/{id}/actualizar-imagen", [ProductoController::class, "actualizarImagen"]);
 
     // rutas para CRUD de usuarios
     Route::get("/usuario", [UserController::class, "funListar"]); //->middleware(["auth:sanctum"]);
