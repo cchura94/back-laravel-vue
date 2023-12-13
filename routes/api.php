@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProductoController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -13,6 +14,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware("auth:sanctum")->group(function(){
+
+    // buscar Cliente
+    Route::get("/cliente/buscar-cliente", [ClienteController::class, "buscarCliente"]); 
 
     // actualizar imagen de producto
     Route::post("producto/{id}/actualizar-imagen", [ProductoController::class, "actualizarImagen"]);
