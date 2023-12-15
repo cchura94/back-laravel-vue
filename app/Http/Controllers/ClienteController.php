@@ -31,7 +31,17 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "nombre_completo" => "required"
+        ]);
+
+        $clie = new Cliente();
+        $clie->nombre_completo = $request->nombre_completo;
+        $clie->ci_nit = $request->ci_nit;
+        $clie->telefono = $request->telefono;
+        $clie->save();
+
+        return response()->json($clie, 201);
     }
 
     /**
