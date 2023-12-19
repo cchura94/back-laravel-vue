@@ -11,9 +11,32 @@ class PedidoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        $limit = isset($request->limit) ? $request->limit:10;
+        $fi = isset($request->fi) ? $request->fi:0;
+        $ff = isset($request->ff) ? $request->ff:0;
+
+        if(isset($request->q)){
+            $pedidos = Pedido::where('fecha', "like", "%".$request->q."%");
+            if($fi && $ff){
+                $pedidos = $pedidos->where('fecha', '>=', $fi)
+                ->where('fecha', '<=', $ff);
+            }
+            $pedidos = $pedidos->orderBy("id", "desc")
+                                    ->with(["cliente", "productos"])
+                                    ->paginate($limit);
+        }else{
+            $pedidos = Pedido::orderBy("id", "desc");
+            if($fi && $ff){
+                $pedidos = $pedidos->where('fecha', '>=', $fi)
+                ->where('fecha', '<=', $ff);
+            }
+            $pedidos = $pedidos->with(["cliente", "productos"])
+                                ->paginate($limit);
+        }
+
+        return response()->json($pedidos, 200);
     }
 
     /**
